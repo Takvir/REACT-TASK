@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 const Problem2 = () => {
-   
 
+    const [countries , setCountries] = useState([]);
+
+    useEffect(()=>{
+        fetch('https://contact.mediusware.com/api/country-contacts/bangladesh/?page=1')
+        .then(res=>res.json())
+        .then(data => setCountries(data))
+    },[])
+
+    console.log(countries);
     return (
 
         <div className="container">
@@ -19,7 +27,7 @@ const Problem2 = () => {
                                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div className="modal-body">
-                                    <p>Modal Content Goes Here</p>
+
                                 </div>
                                 <div className="modal-footer">
 
